@@ -22,8 +22,8 @@ function navbar() {
   }
   return (
     <>
-    <Navbar bg="dark" data-bs-theme="dark">
-        <Container className="d-flex justify-content-between">
+    <Navbar className='rounded-bottom-3' bg="black" data-bs-theme="dark">
+        <Container style={{fontSize:'larger'}} className="d-flex justify-content-between">
           
           <Nav className=''>
             <Nav.Link as={Link} to="/home">Home</Nav.Link>

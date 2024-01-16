@@ -3,18 +3,25 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function profile() {
   const [userName,setUserName]=useState('');
-  const [password,setPassword]=useState('');
+  //getting userdata from redux store
+  const userdata=useSelector((state)=>state.setUser.value);
 
   useEffect(() => {
+    
     const getProfile=async()=>{
       try{
-        let profile=localStorage.getItem('userId');
-        const header = {Authorization: `Bearer ${localStorage.getItem('accessToken')}`};
-        let data=await axios.get(`http://localhost:3000/employees/${profile}`,{headers:header});
-        setUserName(data.data.userName);  
+        let profile=localStorage.getItem('userId'); 
+        /*Setting profile data with a request to backend*/ 
+
+        //const header = {Authorization: `Bearer ${localStorage.getItem('accessToken')}`};
+        //let data=await axios.get(`http://localhost:3000/employees/${profile}`,{headers:header});
+
+        //
+        setUserName(userdata.userName);  
       }
       catch(err){
         console.log(err.message)
@@ -28,8 +35,10 @@ function profile() {
 
   return (
     <>
+    <div style={{height:'39.65rem'}} className='d-flex align-items-center'>
       {profile?
-      <Card style={{ width: '18rem' }}>
+      
+      <Card style={{ width: '18rem',height:'30rem',width:'30rem' }} className='mx-auto rounded-4  d-flex align-items-center justify-content-center'>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Card.Title>{userName}</Card.Title>
@@ -41,7 +50,7 @@ function profile() {
         </Card.Body>
       </Card>
       :
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '18rem',height:'30rem',width:'30rem' }} className='mx-auto rounded-4  d-flex align-items-center justify-content-center'>
         <Card.Img variant="top" src="holder.js/100px180" />
         <Card.Body>
           <Placeholder as={Card.Title} animation="glow">
@@ -54,7 +63,9 @@ function profile() {
           <Placeholder.Button variant="primary" xs={6} />
         </Card.Body>
       </Card>
+      
 }
+</div>
     
     </>
   );
