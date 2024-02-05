@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta name="view-transition" content="same-origin"/>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,8 +12,19 @@
       
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <style>
+      body::-webkit-scrollbar{
+        width: 0.7rem;
+      }
+      body::-webkit-scrollbar-track{
+        background:black;
+      }
+      body::-webkit-scrollbar-thumb{
+        background:rgb(69, 92, 115);
+      }
+    </style>
   </head>
-  <body>
+  <body style="background-color:rgb(42, 37, 47)">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

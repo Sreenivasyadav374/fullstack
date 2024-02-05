@@ -8,20 +8,19 @@ const handleNewUser = async (req, res) => {
   const { userName, password } = req.body;
   if (!userName || !password) {
     return res
-      .sendStatus(400)
+      .status(400)
       .json({ message: "Username and password are required" });
   }
   const duplicate = await employee.find({ userName: userName });
-  console.log(duplicate);
   if (duplicate.length) {
-    return res.send("Username already exists").sendStatus(409);
+    return res.status(409).json({ message: "Username already exists" });
   }
   try {
     const hashedpw = await bcrypt.hash(password, 10);
     await employee.create({ userName: userName, password: hashedpw });
     return res.send("Registered successfully");
   } catch (err) {
-    return res.sendStatus(500).json({ message: err.message });
+    return res.json({ message: err.message });
   }
 };
 
@@ -53,9 +52,11 @@ const handleLogin = async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
       });
 
-      return res.json({ message: "Success", accessToken: accesstoken });
+      return res
+        .status(200)
+        .json({ message: "Success", accessToken: accesstoken });
     } else {
-      return res.json({ message: "Password doesnot match" });
+      return res.status(400).json({ message: "Password doesnot match" });
     }
   } catch (err) {
     console.log(err);

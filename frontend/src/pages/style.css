@@ -1,0 +1,11 @@
+.employee-container{
+    width: 85%;
+    align-self: center;
+    padding-block: 2rem;
+    color: white;
+}
+.emp-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:0.5rem;
+}

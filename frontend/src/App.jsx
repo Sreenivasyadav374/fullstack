@@ -2,13 +2,13 @@
 
 
 import Login from './pages/login/login'
-import Home from './pages/home';
+import Home from './pages/home/home';
 import Employees from './pages/employees';
 import Nopage from './pages/nopage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router, Routes, Route,Navigate, BrowserRouter } from "react-router-dom";
-import Navbar from './components/navbar';
-import Profile from './pages/profile';
+import Navbar from './components/navbar/navbar';
+import Profile from './pages/profile/profile';
 import Register from './pages//register/register';
 import SignupForm from './pages/formik';
 

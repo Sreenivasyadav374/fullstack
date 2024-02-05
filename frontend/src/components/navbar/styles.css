@@ -1,0 +1,75 @@
+.scrollbar{
+    height:1vh;
+    width: 100%;
+    position: fixed;
+    top:0px;
+    z-index: 1000;
+    scale:0 1;
+    background-color: gray;
+    animation: scroll-watcher linear ;
+    animation-timeline: scroll(y);
+    transform-origin: left;
+}
+@keyframes scroll-watcher {
+    to {
+        scale: 1 1;
+    }
+}
+.nav-links{
+    
+    display:flex;
+    justify-content: space-between;  
+    gap: 2vw;
+    
+}  
+
+.link{
+    font-weight: bold;
+    font-size: 1.5rem;
+}    
+.nav-bar {
+    position: sticky;
+    top:0px;
+    min-height: 9vh;
+    background-color:black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    z-index:10 ;
+    align-items: center;
+      
+}
+.link{
+    color: white;
+    text-decoration: none;
+    transition: all 1s;  
+}
+.link.active {
+    color: black;
+    position: relative;
+    background-color: white;
+    border-radius: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
+}
+.link:not(.active):hover{
+    
+    transform: scale(1.2);
+}
+
+.logout-button{
+    background: black;
+    align-self: center;
+    border: 3px solid white;
+    border-radius: 100vw;
+    transition: all 2s;
+    
+
+}
+.logout-button:hover{
+    background: rgb(183, 80, 80);
+    border:0px;
+
+}
+

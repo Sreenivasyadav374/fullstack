@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import './style.css'
 
 
 function employees() {
@@ -13,15 +14,15 @@ function employees() {
         setemp();
     }, []);
   return (
-    <>
-        <ul>
+    <div className='employee-container'>
+        <ul className='emp-list'>
             {employees?.map((e)=>{
                 return <li key={e._id}>
                     {e.userName}
                 </li>
             })}
         </ul>
-    </>
+    </div>
   )
 }
 
